@@ -1,0 +1,168 @@
+<!-- administrator/web_ui/index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <!-- Bootstrap CSS einbinden -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 50px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4 text-center">Admin Dashboard</h1>
+        <form id="startGameForm">
+            <div class="mb-3">
+                <label for="templateFile" class="form-label">Template auswählen (.json Datei)</label>
+                <input class="form-control" type="file" id="templateFile" accept=".json" required>
+            </div>
+            <div class="mb-3">
+                <label for="difficulty" class="form-label">Schwierigkeitsgrad</label>
+                <select class="form-select" id="difficulty" name="difficulty">
+                    <option value="leicht">Leicht</option>
+                    <option value="normal" selected>Normal</option>
+                    <option value="schwer">Schwer</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="timer" class="form-label">Timer (Minuten)</label>
+                <input type="number" class="form-control" id="timer" name="timer" min="1" value="60" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Start Game</button>
+        </form>
+        <div id="result" class="alert" role="alert" style="display: none;"></div>
+    </div>
+
+    <!-- Bootstrap JS und Popper.js einbinden -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Firebase SDK einbinden -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script>
+        // Firebase-Konfiguration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBhTCwVOAnNpLlQ9OkaZwKuEVzCeL5EbHE",
+            authDomain: "ntt-escape-2024.firebaseapp.com",
+            projectId: "ntt-escape-2024",
+            storageBucket: "ntt-escape-2024.appspot.com",
+            messagingSenderId: "866794486830",
+            appId: "1:866794486830:web:c0867fcd4e8d544851b3bf"
+        };
+
+        // Firebase initialisieren
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Funktion zur Generierung eines Tokens im Format "xxxx-xxxx-xxxx"
+        function generateToken() {
+            const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+            let token = '';
+            for (let i = 0; i < 12; i++) {
+                token += characters.charAt(Math.floor(Math.random() * characters.length));
+                if ((i + 1) % 4 === 0 && i !== 11) {
+                    token += '-';
+                }
+            }
+            return token;
+        }
+
+        // Formular-Submit-Handler
+        document.getElementById('startGameForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const templateInput = document.getElementById('templateFile');
+            const difficulty = document.getElementById('difficulty').value;
+            const timer = parseInt(document.getElementById('timer').value, 10);
+
+            if (templateInput.files.length === 0) {
+                showResult('Bitte wählen Sie eine .json Template-Datei aus.', 'danger');
+                return;
+            }
+
+            const file = templateInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = async (event) => {
+                try {
+                    const templateData = JSON.parse(event.target.result);
+                    const token = generateToken();
+
+                    const sessionData = {
+                        token: token,
+                        template_data: templateData,
+                        settings: {
+                            difficulty: difficulty,
+                            timer: timer  // Minuten
+                        },
+                        created_at: firebase.firestore.FieldValue.serverTimestamp(),
+                        progress_updates: {}
+                    };
+
+                    await db.collection('game_sessions').doc(token).set(sessionData);
+
+                    showResult(`Spiel gestartet! Token: <strong>${token}</strong>`, 'success');
+
+                    // Start der Stoppuhr
+                    startStopwatch(timer);
+                } catch (error) {
+                    console.error(error);
+                    showResult('Fehler beim Verarbeiten der Template-Datei.', 'danger');
+                }
+            };
+
+            reader.onerror = () => {
+                showResult('Fehler beim Lesen der Datei.', 'danger');
+            };
+
+            reader.readAsText(file);
+        });
+
+        // Funktion zur Anzeige von Ergebnissen/Fehlermeldungen
+        function showResult(message, type) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.className = `alert alert-${type}`;
+            resultDiv.innerHTML = message;
+            resultDiv.style.display = 'block';
+        }
+
+        // Funktion zur Startung einer Stoppuhr
+        function startStopwatch(minutes) {
+            let remainingTime = minutes * 60; // Sekunden
+            const resultDiv = document.getElementById('result');
+            const timerHTML = document.createElement('div');
+            timerHTML.id = 'stopwatch';
+            timerHTML.className = 'mt-3';
+            resultDiv.appendChild(timerHTML);
+
+            const interval = setInterval(() => {
+                const minutesLeft = Math.floor(remainingTime / 60);
+                const secondsLeft = remainingTime % 60;
+                timerHTML.innerHTML = `Timer: ${pad(minutesLeft)}:${pad(secondsLeft)}`;
+                remainingTime--;
+
+                if (remainingTime < 0) {
+                    clearInterval(interval);
+                    timerHTML.innerHTML = 'Zeit abgelaufen!';
+                }
+            }, 1000);
+        }
+
+        // Hilfsfunktion zum Auffüllen von Nullen
+        function pad(number) {
+            return number < 10 ? '0' + number : number;
+        }
+    </script>
+</body>
+</html>
