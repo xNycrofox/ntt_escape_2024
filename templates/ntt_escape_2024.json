@@ -86,6 +86,18 @@
       },
       {
           "id": 8,
+          "title": "KI oder Künstliche Intelligenz?",
+          "story": "Ihr habt es fast geschafft. Der Virus ist so gut wie isoliert!",
+          "task": "Durchsuche die Plakate, wie oft findet ihr Künstliche Intelligenz oder die Abkürzung davon.",
+          "images": [
+         ],
+          "hints": [
+		   { "hint": "Suche nach den Wörtern KI und Künstliche Intelligenz"}
+          ],
+          "solution": "18"
+      },
+	  {
+          "id": 9,
           "title": "Der finale Schlüssel",
           "story": "Ihr habt es fast geschafft. Der Virus wurde isoliert, aber um ihn endgültig zu neutralisieren, braucht ihr eine weitere Zahlenkombination. Diese ist der Schlüssel für die Zielgerade.",
           "task": "Berechne die Summe der Zahlen von 1 bis 100, um den Zahlencode für die mysteriöse Box zu erhalten.",
