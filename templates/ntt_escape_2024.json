@@ -26,8 +26,8 @@
                 { "image": "https://images.gutefrage.net/media/fragen-antworten/bilder/345466204/1_big.jpg?v=1586865071000"}
           ],
           "hints": [
-              { "hint": "Achte auf die Zeit.", "time": "10" },
-              { "hint": "Zähle die Ecken.", "time": "25" }
+              { "hint": "Achte auf die Zeit.", "time": "300" },
+              { "hint": "Zähle die Ecken.", "time": "500" }
           ],
           "solution": "11"
       },
