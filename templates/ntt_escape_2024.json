@@ -1,0 +1,99 @@
+{
+  "name": "NDBS Escape Room 2024: Die KI-Mission",
+  "jahr": 2024,
+  "author": "Elias Müller <elias.mueller@nttdata.com>",
+  "version": "1.0",
+  "logon_password": "system3",
+  "introduction": "\r\nDie virtuelle und reale Welt verschwimmen\r\n---\r\nJetzt beginnt der schwierigste Teil der Mission. Die Rätsel werden komplexer, und die virtuelle Welt der KI verschmilzt mit der realen. Einige Hinweise befinden sich im System, andere sind in der realen Welt versteckt. Ihr müsst nun sowohl im Raum als auch online arbeiten. Auf einer speziellen Website des Unternehmens wurden versteckte Informationen hinterlegt, die ihr entschlüsseln müsst. Die nächste Herausforderung liegt darin, die richtige Verbindung zwischen beiden Welten zu finden. Nur durch das Zusammenspiel von Realität und Virtualität könnt ihr den Virus aufspüren und eliminieren.",
+  "sections": [
+      {
+          "id": 1,
+          "title": "Kühlschrank",
+          "story": "Um das nächste Rätsel zu finden, müsst ihr in die Kälte eintauchen. Der nächste Hinweis versteckt sich dort, wo die Frische lagert.",
+          "task": "",
+          "images": [
+          ],
+          "hints": [
+          ],
+          "solution": "ALGORITHMUS"
+      },
+      {
+          "id": 2,
+          "title": "Die mathematische Herausforderung",
+          "story": "Während ihr die Geschichte weiterverfolgt, entdeckt ihr, dass ein geheimes Programm in der KI arbeitet. Dieses Programm kontrolliert die Energieflüsse und hat ein eigenes mathematisches System entwickelt, das den Zugang blockiert. Um voranzukommen, müsst ihr eine mathematische Gleichung lösen, die den Zugangscode zur nächsten Ebene der Website freigibt. Das Rätsel scheint kompliziert, aber mit scharfem Verstand werdet ihr es knacken. Sobald die richtige Zahl gefunden wurde, wird ein neuer Teil der Website freigeschaltet, der euch tiefer in die Geheimnisse der KI führt.",
+          "task": "",
+          "images": [
+                { "image": "https://images.gutefrage.net/media/fragen-antworten/bilder/345466204/1_big.jpg?v=1586865071000"}
+          ],
+          "hints": [
+              { "hint": "Achte auf die Zeit.", "time": "300" },
+              { "hint": "Zähle die Ecken.", "time": "500" }
+          ],
+          "solution": "11"
+      },
+      {
+          "id": 3,
+          "title": "Bilderrätsel d3v1v3-z8fu983-3zt89u",
+          "story": "Das System ist schwieriger zu knacken als gedacht.. Ihr stoßt auf weitere Hindernisse, die euch der Virus in den Weg gelegt hat... Schafft ihr es, das Rätsel zu lösen?",
+          "task": "Datum: <del>4, 5</del>\r\nEnte: <del>3, 4</del>\r\nVerkäufer: <del>4,5,6,7,8,9</del>\r\nArzt: <del>3,4</del>\r\nBein: <del>4</del>\r\nZeitung: <del>1,2,3</del>",
+          "images": [
+                { "image": "https://teilhabeberatung-verden-osterholz.de/wp-content/uploads/datum-108-Fragezeichen.png"},
+                { "image": "https://www.scinexx.de/wp-content/uploads/e/n/entenaugen_g.jpg"},
+                { "image": "https://media.aubi-plus.com/berufsbild/xlarge/987e7ae-ausbildung-bei-wez.jpg"},
+                { "image": "https://res-5.cloudinary.com/dyrjbwwbq/image/upload/c_fill/v1595234797/articles/adobestock_297231606farcaa.jpg"},
+                { "image": "https://images.vexels.com/media/users/3/258301/isolated/preview/167f5f6382f4ea2a051f0a8534b2c205-single-leg-stroke.png"},
+                { "image": "https://www.historische-magazine.de/wp-content/uploads/2022/02/IMG_1214-2.jpg"}
+          ],
+          "hints": [
+          ],
+          "solution": "Datenverarbeitung"
+      },
+      {
+          "id": 4,
+          "title": "Ich bin...",
+          "story": "Ich bin ein Algorithmus, der lernt und wächst, mit meinen Daten finde ich Muster, das ist mein Zweck. Die erste Zahl in meiner Bezeichnung ist die, die in der Informatik oft die Grundlage für mich ist, oh wie frei! Die zweite Zahl ist die Anzahl der Buchstaben, in meinem Namen, den viele jetzt schon haben. Die Summe dieser beiden Zahlen ist das Ziel, was ist die Antwort, die ich dir hier spiel?",
+          "task": "",
+          "images": [
+         ],
+          "hints": [
+              { "hint": "Die erste Zahl ist die Anzahl der Bits in einem Byte.", "time": "300" },
+              { "hint": "Die zweite Zahl ist die Anzahl der Buchstaben in 'KI' (Künstliche Intelligenz).", "time": "500" }
+          ],
+          "solution": "10"
+      },
+      {
+          "id": 5,
+          "title": "Ein Mann...",
+          "story": "Ein Mann hat fünf Söhne, jeder Sohn hat eine Schwester, wie viele Kinder hat der Mann?",
+          "task": "",
+          "images": [
+         ],
+          "hints": [
+          ],
+          "solution": "6"
+      },
+      {
+          "id": 6,
+          "title": "Der Morsecode",
+          "story": "Ihr seid kurz davor, den Virus endgültig aufzuhalten. Doch bevor ihr weiterkommt, braucht ihr einen besonderen Code – versteckt im System in Form eines Morsecodes. Ihr habt bereits viele Hinweise gefunden, doch der Morsecode ist entscheidend. Die Lösung ist nahe, aber ihr müsst schnell handeln.",
+          "task": "Findet den Morsecode und entschlüsselt ihn!",
+          "images": [
+            { "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.kn34pc.com%2Fspr%2Fmorse_code%2Fmorse_code.gif&f=1&nofb=1&ipt=5af40c99c4e9d9835e22bbe5806607f29c1a349fca99cc9c97b5cc9e6b31f42f&ipo=images"}
+          ],
+          "hints": [
+          ],
+          "solution": "MASCHINELLES LERNEN"
+      },
+      {
+          "id": 8,
+          "title": "Der finale Schlüssel",
+          "story": "Ihr habt es fast geschafft. Der Virus wurde isoliert, aber um ihn endgültig zu neutralisieren, braucht ihr eine weitere Zahlenkombination. Diese ist der Schlüssel für die Zielgerade.",
+          "task": "Berechne die Summe der Zahlen von 1 bis 100, um den Zahlencode für die mysteriöse Box zu erhalten.",
+          "images": [
+         ],
+          "hints": [
+          ],
+          "solution": "5050"
+      }
+  ]
+}

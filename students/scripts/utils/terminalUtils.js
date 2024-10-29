@@ -21,6 +21,10 @@ export function setupTerminal() {
     terminal.commandHistory = [];
     terminal.historyIndex = -1;
 
+    terminal.fitAddon = new FitAddon()
+    terminal.loadAddon(this.fitAddon)
+    terminal.fitAddon.fit()
+
     return { terminal, terminalContainer };
 }
 

@@ -1,5 +1,12 @@
 // utils/gameLogic.js
 
+/**
+ * Prompts the user for a password via the terminal interface.
+ * 
+ * @param {object} terminal - The terminal interface to interact with the user.
+ * @param {string} correctPassword - The correct password to validate against.
+ * @returns {Promise<boolean>} - A promise that resolves to true if the correct password is entered, otherwise it keeps prompting.
+ */
 export async function promptForPassword(terminal, correctPassword) {
     return new Promise((resolve) => {
         let passwordPromptActive = true;
@@ -34,6 +41,14 @@ export async function promptForPassword(terminal, correctPassword) {
     });
 }
 
+/**
+ * Displays startup logs on the terminal with a sequence of messages.
+ *
+ * @param {Object} terminal - The terminal object to write logs to.
+ * @param {Object} templateData - The data object containing the introduction text.
+ * @param {string} templateData.introduction - The introduction text to be displayed after the startup logs.
+ */
+
 export function displayStartupLogs(terminal, templateData) {
     terminal.writeln('\r\nSystem Booting...');
     setTimeout(() => terminal.writeln('[Loading modules... 10%]'), 500);
@@ -49,10 +64,21 @@ export function displayStartupLogs(terminal, templateData) {
 }
 
 
-// gameLogic.js
 
-// gameLogic.js
-
+/**
+ * Displays situation logs on the terminal based on the given situation.
+ *
+ * @param {Object} terminal - The terminal object where logs will be displayed.
+ * @param {string} situation - The current situation which can be 'improving', 'worsening', or any other value for neutral.
+ *
+ * @example
+ * displaySituationLogs(terminal, 'improving');
+ * // Outputs a random log from the 'improving' situation logs.
+ *
+ * @example
+ * displaySituationLogs(terminal, 'neutral');
+ * // Outputs all logs from the 'neutral' situation logs with a 1-second delay between each.
+ */
 export function displaySituationLogs(terminal, situation) {
     let logs = [];
     switch(situation) {
@@ -114,6 +140,13 @@ export function displaySituationLogs(terminal, situation) {
     }
 }
 
+/**
+ * Displays a sequence of final logs on the provided terminal.
+ * Each log is displayed with a delay of 200 milliseconds between them.
+ *
+ * @param {Object} terminal - The terminal object where logs will be written.
+ * @param {Function} terminal.writeln - Function to write a log to the terminal.
+ */
 export function displayFinalLogs(terminal) {
     const logs = [
         'Initiating Final Virus Purge...',

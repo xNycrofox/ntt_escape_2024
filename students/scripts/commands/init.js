@@ -1,5 +1,13 @@
 // init.js
 
+/**
+ * Initializes the command by prompting the user to select a JSON file and loading its contents.
+ *
+ * @param {object} terminal - The terminal object used to write messages.
+ * @param {Array} args - The arguments passed to the command.
+ * @returns {Promise<object|null>} A promise that resolves to the loaded JSON object or null if no file was selected.
+ * @throws {Error} If there is an error during the file loading process.
+ */
 export async function initCommand(terminal, args) {
     terminal.writeln('Initializing...');
     terminal.writeln('Please wait...');
