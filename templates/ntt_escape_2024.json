@@ -92,7 +92,7 @@
           "images": [
          ],
           "hints": [
-		   { "hint": "Suche nach den Wörtern KI und Künstliche Intelligenz"}
+		   { "hint": "Suche nach den Wörtern KI und Künstliche Intelligenz", "time": "300" }
           ],
           "solution": "18"
       },
